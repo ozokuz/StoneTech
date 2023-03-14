@@ -1,0 +1,41 @@
+{
+    "schemaVersion": 1,
+    "id": "stonetech",
+    "version": "${version}",
+  
+    "name": "StoneTech",
+    "description": "Stone Age technology and stuff...",
+    "authors": [
+      "Ozoku"
+    ],
+    "contact": {
+      "homepage": "https://github.com/ozokuz/StoneTech",
+      "sources": "https://github.com/ozokuz/StoneTech"
+    },
+  
+    "license": "GPLv3",
+    "icon": "assets/modid/icon.png",
+  
+    "environment": "*",
+    "entrypoints": {
+      "main": [
+        "ozokuz.stonetech.StoneTech"
+      ],
+      "client": [
+        "ozokuz.stonetech.StoneTechClient"
+      ],
+      "fabric-datagen": [
+        "ozokuz.stonetech.data.DatagenInitializer"
+      ]
+    },
+    "mixins": [
+      "stonetech.mixins.json"
+    ],
+    "depends": {
+      "fabricloader": ">=0.14",
+      "fabric": "*",
+      "minecraft": "1.18.x",
+      "java": ">=17"
+    }
+  }
+  

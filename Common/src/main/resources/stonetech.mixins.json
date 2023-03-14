@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "ozokuz.stonetech.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AccessorRecipeProvider"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "stonetech.refmap.json"
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "stonetech:block/vessel",
+  "textures": {
+    "all": "minecraft:block/clay"
+  }
+}

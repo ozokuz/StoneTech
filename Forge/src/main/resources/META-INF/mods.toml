@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="GPLv3"
+issueTrackerURL="https://github.com/ozokuz/StoneTech/issues/"
+
+[[mods]]
+modId="stonetech"
+version="${file.jarVersion}"
+displayName="StoneTech"
+displayURL="https://github.com/ozokuz/StoneTech"
+logoFile="multiloader.png"
+credits="IDK"
+authors="Ozoku"
+description='''
+Stone Age technology and stuff...
+'''
+
+[[dependencies.stonetech]]
+    modId="forge"
+    mandatory=true
+    versionRange="[38,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.stonetech]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18,1.19)"
+    ordering="NONE"
+    side="BOTH"
