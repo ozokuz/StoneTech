@@ -9,7 +9,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -23,7 +22,7 @@ import static ozokuz.stonetech.lib.ContainerMenuHelper.isValid;
 public class SmallVesselItem extends Item {
     public static final int SIZE = 9;
     public SmallVesselItem() {
-        super(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_MISC));
+        super(Services.PLATFORM.defaultItemProperties().stacksTo(1));
     }
 
     public static Container getInventory(ItemStack vessel) {

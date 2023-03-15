@@ -7,6 +7,7 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -16,6 +17,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.network.NetworkHooks;
 import org.apache.commons.lang3.function.TriFunction;
+import ozokuz.stonetech.StoneTechCreativeTab;
 import ozokuz.stonetech.platform.services.IPlatformHelper;
 
 import java.util.function.BiFunction;
@@ -51,5 +53,10 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public <T extends BlockEntity> BlockEntityType<T> createBlockEntityType(BiFunction<BlockPos, BlockState, T> func, Block... blocks) {
         return BlockEntityType.Builder.of(func::apply, blocks).build(null);
+    }
+
+    @Override
+    public Item.Properties defaultItemProperties() {
+        return new Item.Properties().tab(StoneTechCreativeTab.INSTANCE);
     }
 }
