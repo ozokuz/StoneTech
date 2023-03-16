@@ -25,10 +25,7 @@ public class LargeVesselBlock extends Block implements EntityBlock {
     public static final int SIZE = 15;
 
     public LargeVesselBlock() {
-        super(Properties.of(Material.DECORATION)
-                .strength(1.0F)
-                .requiresCorrectToolForDrops()
-                .noOcclusion());
+        super(Properties.of(Material.DECORATION).strength(1.0F).noOcclusion());
     }
 
     @Nullable
