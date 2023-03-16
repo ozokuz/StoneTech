@@ -20,6 +20,10 @@ import ozokuz.stonetech.content.vessels.small.SmallVesselItem;
 import ozokuz.stonetech.platform.Services;
 import ozokuz.stonetech.registration.RegistrationProvider;
 import ozokuz.stonetech.registration.RegistryObject;
+import ozokuz.stonetech.content.crude.CrudeAxe;
+import ozokuz.stonetech.content.crude.CrudeHoe;
+import ozokuz.stonetech.content.crude.CrudeShovel;
+import ozokuz.stonetech.content.crude.CrudeKnife;
 
 public final class ModContent {
     public static final RegistrationProvider<Item> ITEMS = RegistrationProvider.get(Registry.ITEM, StoneTechCommon.MOD_ID);
@@ -44,6 +48,11 @@ public final class ModContent {
     public static final RegistryObject<Item> LARGE_VESSEL_ITEM = ITEMS.register("large_vessel", () -> new BlockItem(LARGE_VESSEL.get(), Services.PLATFORM.defaultItemProperties()));
     public static final RegistryObject<BlockEntityType<LargeVesselBlockEntity>> LARGE_VESSEL_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("large_vessel", () -> Services.PLATFORM.createBlockEntityType(LargeVesselBlockEntity::new, LARGE_VESSEL.get()));
     public static final RegistryObject<MenuType<LargeVesselContainer>> LARGE_VESSEL_CONTAINER = MENU_TYPES.register("large_vessel", () -> Services.PLATFORM.createMenuType(LargeVesselContainer::fromNetwork));
+
+    public static final RegistryObject<Item> CRUDE_AXE = ITEMS.register("crude_axe", CrudeAxe::new);
+    public static final RegistryObject<Item> CRUDE_SHOVEL = ITEMS.register("crude_shovel", CrudeShovel::new);
+    public static final RegistryObject<Item> CRUDE_HOE = ITEMS.register("crude_hoe", CrudeHoe::new);
+    public static final RegistryObject<Item> CRUDE_KNIFE = ITEMS.register("crude_knife", CrudeKnife::new);
 
     public static void loadClass() {}
 }

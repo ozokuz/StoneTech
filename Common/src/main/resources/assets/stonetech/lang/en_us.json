@@ -6,5 +6,9 @@
   "block.stonetech.large_vessel": "Large Vessel",
   "block.stonetech.twig": "Twig",
   "block.stonetech.rock": "Rock",
-  "block.stonetech.chopping_block": "Chopping Block (WIP)"
+  "block.stonetech.chopping_block": "Chopping Block (WIP)",
+  "item.stonetech.crude_axe": "Crude Axe",
+  "item.stonetech.crude_hoe": "Crude Hoe",
+  "item.stonetech.crude_knife": "Crude Knife",
+  "item.stonetech.crude_shovel": "Crude Shovel"
 }

@@ -46,6 +46,11 @@ public class RecipeProvider implements DataProvider {
     }
 
     private void registerRecipes(Consumer<FinishedRecipe> consumer) {
+        registerVessels(consumer);
+        registerTools(consumer);
+    }
+
+    private void registerVessels(Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(ModContent.UNFIRED_SMALL_VESSEL.get())
                 .define('C', Items.CLAY_BALL)
                 .pattern("C C")
@@ -68,6 +73,37 @@ public class RecipeProvider implements DataProvider {
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModContent.UNFIRED_LARGE_VESSEL_ITEM.get()), ModContent.LARGE_VESSEL_ITEM.get(), 0.1f, 200)
                 .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(ModContent.UNFIRED_LARGE_VESSEL_ITEM.get()))
+                .save(consumer);
+    }
+
+    private void registerTools(Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(ModContent.CRUDE_KNIFE.get())
+                .define('F', Items.FLINT)
+                .define('T', ModContent.TWIG_ITEM.get())
+                .pattern("F")
+                .pattern("T")
+                .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FLINT))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(ModContent.CRUDE_AXE.get())
+                .define('F', Items.FLINT)
+                .define('T', ModContent.TWIG_ITEM.get())
+                .pattern("FF")
+                .pattern("TF")
+                .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FLINT))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(ModContent.CRUDE_HOE.get())
+                .define('F', Items.FLINT)
+                .define('T', ModContent.TWIG_ITEM.get())
+                .pattern("FF")
+                .pattern(" T")
+                .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FLINT))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(ModContent.CRUDE_SHOVEL.get())
+                .define('F', Items.FLINT)
+                .define('T', ModContent.TWIG_ITEM.get())
+                .pattern("F ")
+                .pattern("FT")
+                .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FLINT))
                 .save(consumer);
     }
 
