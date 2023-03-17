@@ -1,0 +1,26 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "stonetech:block/thatch_bed_top",
+		"1": "stonetech:block/thatch_bed_side",
+		"2": "stonetech:block/thatch_block_top",
+		"3": "stonetech:block/thatch_block_side",
+		"4": "stonetech:block/thatch_bed_end",
+		"particle": "stonetech:block/thatch_bed_top"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 8, 16],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 16], "rotation": 90, "texture": "#2"},
+				"east": {"uv": [16, 0, 0, 8], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 8], "texture": "#4"},
+				"west": {"uv": [0, 0, 16, 8], "texture": "#1"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#3"}
+			}
+		}
+	]
+}

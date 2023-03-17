@@ -10,6 +10,8 @@ import ozokuz.stonetech.content.recipehandlers.ChoppingBlockBlock;
 import ozokuz.stonetech.content.surface.rock.RockBlock;
 import ozokuz.stonetech.content.surface.rock.RockItem;
 import ozokuz.stonetech.content.surface.twig.TwigBlock;
+import ozokuz.stonetech.content.thatch.ThatchBedBlock;
+import ozokuz.stonetech.content.thatch.ThatchBlock;
 import ozokuz.stonetech.content.vessels.large.LargeVesselBlock;
 import ozokuz.stonetech.content.vessels.large.LargeVesselBlockEntity;
 import ozokuz.stonetech.content.vessels.large.LargeVesselContainer;
@@ -66,6 +68,14 @@ public final class ModContent {
     public static final RegistryObject<Item> CRUDE_SHOVEL = ITEMS.register("crude_shovel", CrudeShovel::new);
     public static final RegistryObject<Item> CRUDE_HOE = ITEMS.register("crude_hoe", CrudeHoe::new);
     public static final RegistryObject<Item> CRUDE_KNIFE = ITEMS.register("crude_knife", CrudeKnife::new);
+
+    // Thatch
+    private static final String THATCH_ID = "thatch";
+    public static final RegistryObject<Block> THATCH_BLOCK = BLOCKS.register(THATCH_ID, ThatchBlock::new);
+    public static final RegistryObject<Item> THATCH_BLOCK_ITEM = ITEMS.register(THATCH_ID, () -> new BlockItem(THATCH_BLOCK.get(), Services.PLATFORM.defaultItemProperties()));
+    private static final String THATCH_BED_ID = "thatch_bed";
+    public static final RegistryObject<Block> THATCH_BED_BLOCK = BLOCKS.register(THATCH_BED_ID, ThatchBedBlock::new);
+    public static final RegistryObject<Item> THATCH_BED_ITEM = ITEMS.register(THATCH_BED_ID, () -> new BlockItem(THATCH_BED_BLOCK.get(), Services.PLATFORM.defaultItemProperties()));
 
     public static void loadClass() {}
 }

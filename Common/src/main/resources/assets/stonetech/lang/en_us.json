@@ -10,5 +10,7 @@
   "item.stonetech.crude_axe": "Crude Axe",
   "item.stonetech.crude_hoe": "Crude Hoe",
   "item.stonetech.crude_knife": "Crude Knife",
-  "item.stonetech.crude_shovel": "Crude Shovel"
+  "item.stonetech.crude_shovel": "Crude Shovel",
+  "block.stonetech.thatch": "Thatch",
+  "block.stonetech.thatch_bed": "Thatch Bed"
 }
