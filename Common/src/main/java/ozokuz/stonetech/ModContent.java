@@ -47,6 +47,11 @@ public final class ModContent {
     public static final RegistryObject<Block> ROCK = BLOCKS.register(ROCK_ID, RockBlock::new);
     public static final RegistryObject<Item> ROCK_ITEM = ITEMS.register(ROCK_ID, RockItem::new);
 
+    // Crafting Resources
+    public static final RegistryObject<Item> PLANT_FIBER = ITEMS.register("plant_fiber", () -> new Item(Services.PLATFORM.defaultItemProperties()));
+    public static final RegistryObject<Item> PLANT_STRING = ITEMS.register("plant_string", () -> new Item(Services.PLATFORM.defaultItemProperties()));
+    public static final RegistryObject<Item> STRAW = ITEMS.register("straw", () -> new Item(Services.PLATFORM.defaultItemProperties()));
+
     // Small Vessel
     public static final RegistryObject<Item> UNFIRED_SMALL_VESSEL = ITEMS.register("unfired_small_vessel", () -> new Item(Services.PLATFORM.defaultItemProperties().stacksTo(1)));
     private static final String SMALL_VESSEL_ID = "small_vessel";

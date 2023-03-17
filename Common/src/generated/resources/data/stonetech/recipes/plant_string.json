@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "stonetech:plant_fiber"
+    },
+    {
+      "item": "stonetech:plant_fiber"
+    },
+    {
+      "item": "stonetech:plant_fiber"
+    }
+  ],
+  "result": {
+    "item": "stonetech:plant_string"
+  }
+}

@@ -8,6 +8,7 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -46,8 +47,21 @@ public class RecipeProvider implements DataProvider {
     }
 
     private void registerRecipes(Consumer<FinishedRecipe> consumer) {
+        registerIngredients(consumer);
         registerVessels(consumer);
         registerTools(consumer);
+    }
+
+    private void registerIngredients(Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(ModContent.PLANT_STRING.get())
+                .requires(ModContent.PLANT_FIBER.get())
+                .requires(ModContent.PLANT_FIBER.get())
+                .requires(ModContent.PLANT_FIBER.get())
+                .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(ModContent.PLANT_FIBER.get()))
+                .save(consumer);
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModContent.PLANT_FIBER.get()), ModContent.STRAW.get(), 0.1f, 200)
+                .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(ModContent.PLANT_FIBER.get()))
+                .save(consumer);
     }
 
     private void registerVessels(Consumer<FinishedRecipe> consumer) {

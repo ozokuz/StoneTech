@@ -12,5 +12,8 @@
   "item.stonetech.crude_knife": "Crude Knife",
   "item.stonetech.crude_shovel": "Crude Shovel",
   "block.stonetech.thatch": "Thatch",
-  "block.stonetech.thatch_bed": "Thatch Bed"
+  "block.stonetech.thatch_bed": "Thatch Bed",
+  "item.stonetech.plant_fiber": "Plant Fiber",
+  "item.stonetech.plant_string": "Plant String",
+  "item.stonetech.straw": "Straw"
 }
