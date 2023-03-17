@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.material.Material;
-import ozokuz.stonetech.ModContent;
+import ozokuz.stonetech.content.ModContent;
 import ozokuz.stonetech.platform.Services;
 
 public class RockItem extends BlockItem {

@@ -1,4 +1,4 @@
-package ozokuz.stonetech;
+package ozokuz.stonetech.content;
 
 import net.minecraft.core.Registry;
 import net.minecraft.world.inventory.MenuType;
@@ -6,6 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import ozokuz.stonetech.StoneTechCommon;
 import ozokuz.stonetech.content.recipehandlers.ChoppingBlockBlock;
 import ozokuz.stonetech.content.surface.rock.RockBlock;
 import ozokuz.stonetech.content.surface.rock.RockItem;

@@ -16,7 +16,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import ozokuz.stonetech.ModContent;
+import ozokuz.stonetech.content.ModContent;
 
 public class RockBlock extends Block {
     private static final VoxelShape SHAPE = box(4, 0, 4, 12, 4, 12);

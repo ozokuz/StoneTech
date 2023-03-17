@@ -14,7 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
-import ozokuz.stonetech.ModContent;
+import ozokuz.stonetech.content.ModContent;
 import ozokuz.stonetech.mixin.AccessorRecipeProvider;
 
 import java.nio.file.Path;

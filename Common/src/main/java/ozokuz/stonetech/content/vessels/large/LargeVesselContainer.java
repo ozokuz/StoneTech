@@ -9,7 +9,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import ozokuz.stonetech.ModContent;
+import ozokuz.stonetech.content.ModContent;
 
 import static ozokuz.stonetech.content.vessels.large.LargeVesselBlock.SIZE;
 import static ozokuz.stonetech.lib.ContainerMenuHelper.SLOT_WIDTH;

@@ -1,4 +1,4 @@
-package ozokuz.stonetech;
+package ozokuz.stonetech.content;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import ozokuz.stonetech.StoneTechCommon;
 import ozokuz.stonetech.content.surface.twig.TwigsConfig;
 import ozokuz.stonetech.content.surface.twig.TwigsFeature;
 import ozokuz.stonetech.content.surface.rock.RocksConfig;

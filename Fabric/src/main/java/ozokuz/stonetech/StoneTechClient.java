@@ -2,6 +2,7 @@ package ozokuz.stonetech;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.gui.screens.MenuScreens;
+import ozokuz.stonetech.content.ModContent;
 import ozokuz.stonetech.content.vessels.large.LargeVesselScreen;
 import ozokuz.stonetech.content.vessels.small.SmallVesselScreen;
 

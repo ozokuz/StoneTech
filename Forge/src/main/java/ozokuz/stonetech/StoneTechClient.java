@@ -5,6 +5,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import ozokuz.stonetech.content.ModContent;
 import ozokuz.stonetech.content.vessels.large.LargeVesselScreen;
 import ozokuz.stonetech.content.vessels.small.SmallVesselScreen;
 

@@ -6,7 +6,6 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import ozokuz.stonetech.ItemNBTHelper;
 
 public class ItemBasedInventory extends SimpleContainer {
     private static final String TAG_NAME = "items";

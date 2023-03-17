@@ -17,7 +17,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import ozokuz.stonetech.ModContent;
+import ozokuz.stonetech.content.ModContent;
 
 public class ThatchBedBlock extends HorizontalDirectionalBlock {
     private static final VoxelShape SHAPE = box(0, 0, 0, 16, 8, 16);

@@ -2,6 +2,7 @@ package ozokuz.stonetech;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ozokuz.stonetech.content.ModContent;
 
 public class StoneTechCommon {
     public static final String MOD_ID = "stonetech";

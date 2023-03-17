@@ -1,4 +1,4 @@
-package ozokuz.stonetech;
+package ozokuz.stonetech.lib;
 
 import net.minecraft.nbt.ListTag;
 import net.minecraft.world.item.ItemStack;

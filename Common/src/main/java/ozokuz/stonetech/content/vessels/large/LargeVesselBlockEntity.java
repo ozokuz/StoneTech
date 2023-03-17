@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
-import ozokuz.stonetech.ModContent;
+import ozokuz.stonetech.content.ModContent;
 import ozokuz.stonetech.lib.BlockInventory;
 
 import static ozokuz.stonetech.lib.ContainerMenuHelper.isValid;
