@@ -63,6 +63,12 @@ public class RecipeProvider implements DataProvider {
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModContent.PLANT_FIBER.get()), ModContent.STRAW.get(), 0.1f, 200)
                 .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(ModContent.PLANT_FIBER.get()))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(ModContent.THATCH_BLOCK_ITEM.get())
+                .define('T', ModContent.STRAW.get())
+                .pattern("TT")
+                .pattern("TT")
+                .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(ModContent.STRAW.get()))
+                .save(consumer);
     }
 
     private void registerVessels(Consumer<FinishedRecipe> consumer) {
