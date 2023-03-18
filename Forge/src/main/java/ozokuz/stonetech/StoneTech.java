@@ -9,6 +9,7 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -20,9 +21,16 @@ import java.util.function.Consumer;
 @Mod(StoneTechCommon.MOD_ID)
 public class StoneTech {
     public StoneTech() {
-        StoneTechCommon.init();
+        initRegistries();
         bind(ForgeRegistries.FEATURES, ModFeatures::registerFeatures);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+    }
+
+    public void initRegistries() {
+        final var eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        StoneTechCommon.init();
+        StoneTechForgeContent.LOOT_MODIFIER_SERIALIZERS.register(eventBus);
     }
 
     public void commonSetup(FMLCommonSetupEvent e) {

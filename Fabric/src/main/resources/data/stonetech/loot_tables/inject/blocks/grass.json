@@ -1,0 +1,25 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "stonetech:plant_fiber"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "item": "stonetech:crude_knife"
+          }
+        },
+        {
+          "condition": "block_state_property",
+          "block": "minecraft:grass"
+        }
+      ]
+    }
+  ]
+}
