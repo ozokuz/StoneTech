@@ -1,53 +1,23 @@
 package ozokuz.stonetech.data.recipes;
 
-import com.google.common.collect.Sets;
-import com.google.gson.JsonObject;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import org.jetbrains.annotations.NotNull;
 import ozokuz.stonetech.content.ModContent;
-import ozokuz.stonetech.mixin.AccessorRecipeProvider;
 
-import java.nio.file.Path;
-import java.util.Set;
 import java.util.function.Consumer;
 
-public class RecipeProvider implements DataProvider {
-    private final DataGenerator generator;
-
-    public RecipeProvider(DataGenerator generator) {
-        this.generator = generator;
+public class VanillaRecipeProvider extends AbstractRecipeProvider {
+    public VanillaRecipeProvider(DataGenerator generator) {
+        super(generator);
     }
 
-    @Override
-    public void run(@NotNull HashCache cache) {
-        Path path = this.generator.getOutputFolder();
-        Set<ResourceLocation> set = Sets.newHashSet();
-
-        registerRecipes((recipeJsonProvider) -> {
-            if (!set.add(recipeJsonProvider.getId())) {
-                throw new IllegalStateException("Duplicate recipe " + recipeJsonProvider.getId());
-            } else {
-                AccessorRecipeProvider.callSaveRecipe(cache, recipeJsonProvider.serializeRecipe(), path.resolve("data/" + recipeJsonProvider.getId().getNamespace() + "/recipes/" + recipeJsonProvider.getId().getPath() + ".json"));
-                JsonObject jsonObject = recipeJsonProvider.serializeAdvancement();
-                if (jsonObject != null) {
-                    ((AccessorRecipeProvider) new net.minecraft.data.recipes.RecipeProvider(this.generator)).callSaveAdvancement(cache, jsonObject, path.resolve("data/" + recipeJsonProvider.getId().getNamespace() + "/advancements/" + recipeJsonProvider.getAdvancementId().getPath() + ".json"));
-                }
-            }
-        });
-    }
-
-    private void registerRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void registerRecipes(Consumer<FinishedRecipe> consumer) {
         registerIngredients(consumer);
         registerVessels(consumer);
         registerTools(consumer);
@@ -133,6 +103,6 @@ public class RecipeProvider implements DataProvider {
 
     @Override
     public String getName() {
-        return "StoneTech Crafting Recipes";
+        return "StoneTech Vanilla Recipes";
     }
 }
