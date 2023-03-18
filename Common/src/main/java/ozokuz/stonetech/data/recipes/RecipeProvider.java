@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
@@ -100,22 +101,25 @@ public class RecipeProvider implements DataProvider {
                 .save(consumer);
         ShapedRecipeBuilder.shaped(ModContent.CRUDE_AXE.get())
                 .define('F', Items.FLINT)
+                .define('S', Ingredient.of(ModContent.PLANT_STRING.get(), Items.STRING))
                 .define('T', ModContent.TWIG_ITEM.get())
-                .pattern("FF")
-                .pattern("TF")
+                .pattern("FS")
+                .pattern(" T")
                 .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FLINT))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(ModContent.CRUDE_HOE.get())
                 .define('F', Items.FLINT)
+                .define('S', Ingredient.of(ModContent.PLANT_STRING.get(), Items.STRING))
                 .define('T', ModContent.TWIG_ITEM.get())
                 .pattern("FF")
-                .pattern(" T")
+                .pattern("ST")
                 .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FLINT))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(ModContent.CRUDE_SHOVEL.get())
                 .define('F', Items.FLINT)
+                .define('S', Ingredient.of(ModContent.PLANT_STRING.get(), Items.STRING))
                 .define('T', ModContent.TWIG_ITEM.get())
-                .pattern("F ")
+                .pattern("FS")
                 .pattern("FT")
                 .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FLINT))
                 .save(consumer);

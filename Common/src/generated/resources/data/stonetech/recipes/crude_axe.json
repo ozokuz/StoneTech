@@ -1,13 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "FF",
-    "TF"
+    "FS",
+    " T"
   ],
   "key": {
     "F": {
       "item": "minecraft:flint"
     },
+    "S": [
+      {
+        "item": "stonetech:plant_string"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
     "T": {
       "item": "stonetech:twig"
     }
