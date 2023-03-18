@@ -4,13 +4,18 @@ Stone Age technology mod.
 
 ## Current Features
 
+- Surface rocks & twigs
 - Small & Large Vessels for item storage
+- Plant fiber
+- Plant string
+- Straw
+- Crude tools
+- Thatch
+- Thatch Bed
 
 ## Ideas
 
-- Surface rocks, twigs & ore clumps
-- Plant fiber
-- Crude tools
+- Surface ore clumps
 - Chopping Block
 - Saw
 - Knife
