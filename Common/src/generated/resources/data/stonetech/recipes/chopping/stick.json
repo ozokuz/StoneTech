@@ -1,0 +1,10 @@
+{
+  "type": "stonetech:chopping_block",
+  "ingredient": {
+    "tag": "minecraft:wooden_slabs"
+  },
+  "result": {
+    "item": "minecraft:stick",
+    "count": 2
+  }
+}

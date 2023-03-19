@@ -1,13 +1,19 @@
 package ozokuz.stonetech.content;
 
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import ozokuz.stonetech.StoneTechCommon;
 import ozokuz.stonetech.content.recipehandlers.ChoppingBlockBlock;
+import ozokuz.stonetech.content.recipehandlers.ChoppingBlockBlockEntity;
+import ozokuz.stonetech.content.recipehandlers.ChoppingBlockRecipe;
 import ozokuz.stonetech.content.surface.rock.RockBlock;
 import ozokuz.stonetech.content.surface.rock.RockItem;
 import ozokuz.stonetech.content.surface.twig.TwigBlock;
@@ -27,6 +33,10 @@ import ozokuz.stonetech.content.crude.CrudeHoe;
 import ozokuz.stonetech.content.crude.CrudeShovel;
 import ozokuz.stonetech.content.crude.CrudeKnife;
 
+import java.util.function.BiConsumer;
+
+import static ozokuz.stonetech.StoneTechCommon.res;
+
 public final class ModContent {
     private ModContent() {}
 
@@ -35,10 +45,15 @@ public final class ModContent {
     public static final RegistrationProvider<Block> BLOCKS = RegistrationProvider.get(Registry.BLOCK, StoneTechCommon.MOD_ID);
     public static final RegistrationProvider<MenuType<?>> MENU_TYPES = RegistrationProvider.get(Registry.MENU, StoneTechCommon.MOD_ID);
     public static final RegistrationProvider<BlockEntityType<?>> BLOCK_ENTITY_TYPES = RegistrationProvider.get(Registry.BLOCK_ENTITY_TYPE, StoneTechCommon.MOD_ID);
+    public static final RegistrationProvider<RecipeType<?>> RECIPE_TYPES = RegistrationProvider.get(Registry.RECIPE_TYPE, StoneTechCommon.MOD_ID);
 
     // Chopping Block
-    public static final RegistryObject<Block> CHOPPING_BLOCK = BLOCKS.register("chopping_block", ChoppingBlockBlock::new);
-    public static final RegistryObject<Item> CHOPPING_BLOCK_ITEM = ITEMS.register("chopping_block", () -> new BlockItem(CHOPPING_BLOCK.get(), Services.PLATFORM.defaultItemProperties().stacksTo(1)));
+    private static final String CHOPPING_BLOCK_ID = "chopping_block";
+    public static final RegistryObject<Block> CHOPPING_BLOCK = BLOCKS.register(CHOPPING_BLOCK_ID, ChoppingBlockBlock::new);
+    public static final RegistryObject<Item> CHOPPING_BLOCK_ITEM = ITEMS.register(CHOPPING_BLOCK_ID, () -> new BlockItem(CHOPPING_BLOCK.get(), Services.PLATFORM.defaultItemProperties().stacksTo(1)));
+    public static final RegistryObject<BlockEntityType<ChoppingBlockBlockEntity>> CHOPPING_BLOCK_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(CHOPPING_BLOCK_ID, () -> Services.PLATFORM.createBlockEntityType(ChoppingBlockBlockEntity::new, CHOPPING_BLOCK.get()));
+    public static final RecipeType<ChoppingBlockRecipe> CHOPPING_BLOCK_RECIPE_TYPE = new ModRecipeType<>();
+    public static final RecipeSerializer<ChoppingBlockRecipe> CHOPPING_BLOCK_RECIPE_SERIALIZER = new ChoppingBlockRecipe.Serializer();
 
     // World Gen
     private static final String TWIG_ID = "twig";
@@ -84,4 +99,16 @@ public final class ModContent {
     public static final RegistryObject<Item> THATCH_BED_ITEM = ITEMS.register(THATCH_BED_ID, () -> new BlockItem(THATCH_BED_BLOCK.get(), Services.PLATFORM.defaultItemProperties()));
 
     public static void loadClass() {}
+
+    public static void registerRecipeSerializers(BiConsumer<RecipeSerializer<?>, ResourceLocation> consumer) {
+        var CHOPPING_BLOCK_ID = res("chopping_block");
+        Registry.register(Registry.RECIPE_TYPE, CHOPPING_BLOCK_ID, CHOPPING_BLOCK_RECIPE_TYPE);
+        consumer.accept(CHOPPING_BLOCK_RECIPE_SERIALIZER, CHOPPING_BLOCK_ID);
+    }
+    private static class ModRecipeType<T extends Recipe<?>> implements RecipeType<T> {
+        @Override
+        public String toString() {
+            return Registry.RECIPE_TYPE.getKey(this).toString();
+        }
+    }
 }

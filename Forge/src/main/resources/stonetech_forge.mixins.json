@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "package": "ozokuz.stonetech.mixin",
+  "mixins": [
+    "MixinRecipeSerializerBase"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "stonetech.refmap.json"
+}

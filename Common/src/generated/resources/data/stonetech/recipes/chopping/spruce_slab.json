@@ -1,0 +1,10 @@
+{
+  "type": "stonetech:chopping_block",
+  "ingredient": {
+    "item": "minecraft:spruce_planks"
+  },
+  "result": {
+    "item": "minecraft:spruce_slab",
+    "count": 2
+  }
+}

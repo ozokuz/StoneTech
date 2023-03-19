@@ -6,6 +6,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import ozokuz.stonetech.content.ModContent;
@@ -21,6 +22,11 @@ public class VanillaRecipeProvider extends AbstractRecipeProvider {
         registerIngredients(consumer);
         registerVessels(consumer);
         registerTools(consumer);
+        ShapelessRecipeBuilder.shapeless(ModContent.CHOPPING_BLOCK_ITEM.get())
+                .requires(ItemTags.LOGS)
+                .requires(Ingredient.of(ModContent.CRUDE_AXE.get(), Items.WOODEN_AXE, Items.STONE_AXE, Items.IRON_AXE, Items.GOLDEN_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE))
+                .unlockedBy("has_item", InventoryChangeTrigger.TriggerInstance.hasItems(ModContent.TWIG_ITEM.get()))
+                .save(consumer);
     }
 
     private void registerIngredients(Consumer<FinishedRecipe> consumer) {

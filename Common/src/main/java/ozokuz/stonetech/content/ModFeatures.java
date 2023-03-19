@@ -9,7 +9,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import ozokuz.stonetech.StoneTechCommon;
 import ozokuz.stonetech.content.surface.twig.TwigsConfig;
 import ozokuz.stonetech.content.surface.twig.TwigsFeature;
 import ozokuz.stonetech.content.surface.rock.RocksConfig;
@@ -18,9 +17,11 @@ import ozokuz.stonetech.content.surface.rock.RocksFeature;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
+import static ozokuz.stonetech.StoneTechCommon.res;
+
 public class ModFeatures {
-    public static final ResourceKey<PlacedFeature> TWIGS_ID = ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, new ResourceLocation(StoneTechCommon.MOD_ID, "twigs"));
-    public static final ResourceKey<PlacedFeature> ROCKS_ID = ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, new ResourceLocation(StoneTechCommon.MOD_ID, "rocks"));
+    public static final ResourceKey<PlacedFeature> TWIGS_ID = ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, res("twigs"));
+    public static final ResourceKey<PlacedFeature> ROCKS_ID = ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, res("rocks"));
     public static Holder<PlacedFeature> twigsPlaced = null;
     public static Holder<PlacedFeature> rocksPlaced = null;
 
