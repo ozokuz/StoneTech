@@ -12,11 +12,11 @@ Stone Age technology mod.
 - Crude tools
 - Thatch
 - Thatch Bed
+- Chopping Block
 
 ## Ideas
 
 - Surface ore clumps
-- Chopping Block
 - Saw
 - Knife
 - Firestarter
