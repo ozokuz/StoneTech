@@ -53,6 +53,10 @@ public class StoneTech {
             var level = player.getLevel();
             var pos = event.getPos();
             var state = level.getBlockState(pos);
+            if (StoneTechCommon.interceptBreak(level, pos, state, player)) {
+                event.setCanceled(true);
+                return;
+            }
             if (state.getBlock() instanceof ChoppingBlockBlock choppingBlockBlock && choppingBlockBlock.interceptClick(level, pos, state, player)) {
                 event.setCanceled(true);
             }

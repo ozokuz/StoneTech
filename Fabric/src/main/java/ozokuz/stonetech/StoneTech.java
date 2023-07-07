@@ -39,6 +39,9 @@ public class StoneTech implements ModInitializer {
         }, GenerationStep.Decoration.VEGETAL_DECORATION, ModFeatures.TWIGS_ID);
 
         PlayerBlockBreakEvents.BEFORE.register((level, player, pos, state, blockEntity) -> {
+            if (StoneTechCommon.interceptBreak(level, pos, state, player)) {
+                return false;
+            }
             if (state.getBlock() instanceof ChoppingBlockBlock choppingBlockBlock) {
                 return !choppingBlockBlock.interceptClick(level, pos, state, player);
             }

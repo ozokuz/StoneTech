@@ -45,7 +45,12 @@ public class AddItemModifier extends LootModifier {
 
         @Override
         public JsonObject write(AddItemModifier instance) {
-            return new JsonObject();
+            var json = makeConditions(instance.conditions);
+            json.addProperty("item", ForgeRegistries.ITEMS.getKey(instance.item).toString());
+            if (instance.count > 1) {
+                json.addProperty("count", instance.count);
+            }
+            return json;
         }
     }
 }

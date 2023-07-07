@@ -1,6 +1,5 @@
 {
   "type": "stonetech:add_item",
-  "item": "stonetech:plant_fiber",
   "conditions": [
     {
       "condition": "minecraft:match_tool",
@@ -12,5 +11,6 @@
       "condition": "block_state_property",
       "block": "minecraft:grass"
     }
-  ]
+  ],
+  "item": "stonetech:plant_fiber"
 }
