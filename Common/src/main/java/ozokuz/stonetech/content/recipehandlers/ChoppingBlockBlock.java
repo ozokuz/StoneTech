@@ -116,7 +116,7 @@ public class ChoppingBlockBlock extends Block implements EntityBlock {
     public boolean interceptClick(Level level, BlockPos pos, BlockState state, Player player) {
         var blockEntity = ((ChoppingBlockBlockEntity) level.getBlockEntity(pos));
         if (blockEntity.isEmpty()) return false;
-        if (level.isClientSide()) return true;
+        if (level.isClientSide()) return false;
 
         var axe = player.getItemInHand(InteractionHand.MAIN_HAND);
         if (!(axe.getItem() instanceof AxeItem)) return false;

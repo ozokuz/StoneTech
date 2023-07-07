@@ -2,10 +2,11 @@ package ozokuz.stonetech;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -38,15 +39,15 @@ public class StoneTech implements ModInitializer {
             return !ModFeatures.TYPE_BLACKLIST.contains(category) && category.equals(Biome.BiomeCategory.FOREST);
         }, GenerationStep.Decoration.VEGETAL_DECORATION, ModFeatures.TWIGS_ID);
 
-        PlayerBlockBreakEvents.BEFORE.register((level, player, pos, state, blockEntity) -> {
+        AttackBlockCallback.EVENT.register((player, level, hand, pos, direction) -> {
+            var state = level.getBlockState(pos);
             if (StoneTechCommon.interceptBreak(level, pos, state, player)) {
-                return false;
+                return InteractionResult.FAIL;
             }
-            if (state.getBlock() instanceof ChoppingBlockBlock choppingBlockBlock) {
-                return !choppingBlockBlock.interceptClick(level, pos, state, player);
+            if (state.getBlock() instanceof ChoppingBlockBlock choppingBlockBlock && choppingBlockBlock.interceptClick(level, pos, state, player)) {
+                return InteractionResult.FAIL;
             }
-
-            return true;
+            return InteractionResult.PASS;
         });
     }
 
